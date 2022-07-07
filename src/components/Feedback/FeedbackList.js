@@ -1,4 +1,3 @@
-import { prettyFormat } from '@testing-library/react';
 import PropTypes from 'prop-types';
 import s from './Feedback.module.css';
 
