@@ -1,22 +1,18 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import Feedback from './Feedback/Feedback';
 
-class App extends Component {
-  state = {
-    visible: false,
+function App() {
+  const [visible, setVisible] = useState(false);
+
+  const onVisible = t => {
+    setVisible(t);
   };
 
-  onVisible = t => {
-    this.setState({ visible: t });
-  };
-
-  render() {
-    return (
-      <div>
-        <Feedback onVisible={this.onVisible} visible={this.state.visible} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Feedback onVisible={onVisible} visible={visible} />
+    </div>
+  );
 }
 
 export default App;

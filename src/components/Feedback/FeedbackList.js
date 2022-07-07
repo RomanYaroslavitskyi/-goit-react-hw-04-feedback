@@ -1,10 +1,11 @@
+import { prettyFormat } from '@testing-library/react';
 import PropTypes from 'prop-types';
 import s from './Feedback.module.css';
 
 const FeedbackList = ({ state, onClickBtn }) => {
   return (
     <ul className={s.feedback__list}>
-      {Object.keys(state).map(el => {
+      {state.map(el => {
         return (
           <li className={s.feedback__item} key={el}>
             <button
@@ -25,10 +26,6 @@ const FeedbackList = ({ state, onClickBtn }) => {
 export default FeedbackList;
 
 FeedbackList.propTypes = {
-  state: PropTypes.exact({
-    good: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-  }).isRequired,
+  state: PropTypes.arrayOf(PropTypes.string.isRequired),
   onClickBtn: PropTypes.func.isRequired,
 };
